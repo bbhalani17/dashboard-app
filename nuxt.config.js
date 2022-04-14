@@ -67,5 +67,8 @@ export default {
     svgSpriteLoader: {
       // svg-sprite-loader options
     },
+    router: {
+      base: 'dashboard-app'
+    }
   },
 }
