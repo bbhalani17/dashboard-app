@@ -1,6 +1,5 @@
 import { describe, expect } from '@jest/globals'
 import NewCard from '@/components/NewCard.vue'
-import jestConfig from '~/jest.config'
 
 describe('NewCard', () => {
   // data
