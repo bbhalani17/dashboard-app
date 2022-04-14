@@ -1,6 +1,9 @@
 export default {
   target: 'static',
   ssr: false,
+  router: {
+    base: 'dashboard-app'
+  },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'aspire',
@@ -67,8 +70,6 @@ export default {
     svgSpriteLoader: {
       // svg-sprite-loader options
     },
-    router: {
-      base: 'dashboard-app'
-    }
+
   },
 }
