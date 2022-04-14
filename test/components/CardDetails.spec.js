@@ -8,7 +8,7 @@ describe('CardDetails', () => {
       // Arrange
       const expected = {
         visible: false,
-        visible2: false
+        visible2: false,
       }
       // Act
       const defVal = CardDetails.data.call()

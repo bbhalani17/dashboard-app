@@ -8,7 +8,7 @@ describe('NewCard', () => {
     test('data', () => {
       const expected = {
         name: '',
-        submitted: false
+        submitted: false,
       }
       expect(NewCard.data.call()).toEqual(expected)
     })
@@ -31,7 +31,7 @@ describe('NewCard', () => {
     test('resetModal', () => {
       // Arrange
       const localThis = {
-        name: 'test'
+        name: 'test',
       }
       const expected = ''
       // Act
@@ -45,10 +45,10 @@ describe('NewCard', () => {
     test('handleOk', () => {
       // Arrange
       const localThis = {
-        handleSubmit: jest.fn()
+        handleSubmit: jest.fn(),
       }
       const modal = {
-        preventDefault: jest.fn()
+        preventDefault: jest.fn(),
       }
       // Act
       NewCard.methods.handleOk.call(localThis, modal)
@@ -70,17 +70,17 @@ describe('NewCard', () => {
         },
         $v: {
           $touch: () => {},
-          $invalid: false
+          $invalid: false,
         },
         $store: {
           commit: () => {
             count++
-          }
+          },
         },
-        $nextTick: ()=> {},
+        $nextTick: () => {},
         $bvModal: {
-          hide: jest.fn()
-        }
+          hide: jest.fn(),
+        },
       }
       const expected = 1
       // Act
@@ -101,17 +101,17 @@ describe('NewCard', () => {
         },
         $v: {
           $touch: () => {},
-          $invalid: true
+          $invalid: true,
         },
         $store: {
           commit: () => {
             count++
-          }
+          },
         },
         $nextTick: () => {},
         $bvModal: {
-          hide: jest.fn()
-        }
+          hide: jest.fn(),
+        },
       }
       const expected = 0
       // Act
@@ -120,7 +120,7 @@ describe('NewCard', () => {
       expect(count).toEqual(expected)
     })
   })
-  
+
   describe('getRandomNumber()', () => {
     test('getRandomNumber', () => {
       // Arrange

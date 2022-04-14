@@ -4,38 +4,68 @@
       <card-options
         :card-index="cardIndex"
         :card-name="card ? card.name : ''"
-        :card-number="card ? card.fullNumber: null"
+        :card-number="card ? card.fullNumber : null"
         :frozen="card ? card.frozen : false"
       />
     </div>
     <div class="transactions-wrapper">
       <div class="accordion" role="tablist">
         <b-card no-body class="mb-1">
-          <b-card-header v-b-toggle.accordion-1 header-tag="header" class="p-1" role="tab">
+          <b-card-header
+            v-b-toggle.accordion-1
+            header-tag="header"
+            class="p-1"
+            role="tab"
+          >
             <div>
-              <img src="~assets/icons/Carddetails.svg" alt="Card details"/>
+              <img src="~assets/icons/Carddetails.svg" alt="Card details" />
               Card details
             </div>
-            <img v-if="visible" src="~assets/icons/UpArrow.svg" alt="up arrow"/>
-            <img v-else src="~assets/icons/DownArrow.svg" alt="down arrow"/>
+            <img
+              v-if="visible"
+              src="~assets/icons/UpArrow.svg"
+              alt="up arrow"
+            />
+            <img v-else src="~assets/icons/DownArrow.svg" alt="down arrow" />
           </b-card-header>
-          <b-collapse id="accordion-1" v-model="visible" visible accordion="my-accordion" role="tabpanel">
+          <b-collapse
+            id="accordion-1"
+            v-model="visible"
+            visible
+            accordion="my-accordion"
+            role="tabpanel"
+          >
             <!-- {{card}} -->
           </b-collapse>
         </b-card>
         <b-card no-body class="mb-1">
-          <b-card-header v-b-toggle.accordion-2 header-tag="header" class="p-1" role="tab">
+          <b-card-header
+            v-b-toggle.accordion-2
+            header-tag="header"
+            class="p-1"
+            role="tab"
+          >
             <div>
-              <img src="~assets/icons/RecentTracks.svg" alt="Recent transactions"/>
+              <img
+                src="~assets/icons/RecentTracks.svg"
+                alt="Recent transactions"
+              />
               Recent transactions
             </div>
-            <img v-if="visible" src="~assets/icons/UpArrow.svg" alt="up arrow"/>
-            <img v-else src="~assets/icons/DownArrow.svg" alt="down arrow"/>
-          </b-card-header>
-          <b-collapse id="accordion-2" v-model="visible2" accordion="my-accordion" role="tabpanel">
-            <card-transactions
-              :transactions="card.transactions"
+            <img
+              v-if="visible"
+              src="~assets/icons/UpArrow.svg"
+              alt="up arrow"
             />
+            <img v-else src="~assets/icons/DownArrow.svg" alt="down arrow" />
+          </b-card-header>
+          <b-collapse
+            id="accordion-2"
+            v-model="visible2"
+            accordion="my-accordion"
+            role="tabpanel"
+          >
+            <card-transactions :transactions="card.transactions" />
           </b-collapse>
         </b-card>
       </div>
@@ -50,24 +80,24 @@ export default {
   name: 'CardDetails',
   components: {
     CardOptions,
-    CardTransactions
+    CardTransactions,
   },
   props: {
     cardIndex: {
       type: Number,
-      default: () => 0
+      default: () => 0,
     },
     card: {
       type: Object,
-      default: () => null
-    }
+      default: () => null,
+    },
   },
   data() {
     return {
       visible: false,
-      visible2: true
+      visible2: true,
     }
-  }
+  },
 }
 </script>
 <style lang="scss">

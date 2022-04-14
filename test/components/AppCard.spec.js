@@ -21,7 +21,7 @@ describe('AppCard', () => {
       // Arrange
       const expected = {
         slide: 0,
-        showCardNumber: false
+        showCardNumber: false,
       }
       // Act
       const defObj = AppCard.data.call()
@@ -36,7 +36,7 @@ describe('AppCard', () => {
     test('validCard false case', () => {
       // Arrange
       const localThis = {
-        getActiveCard: null
+        getActiveCard: null,
       }
       const expected = false
       // Act
@@ -50,8 +50,8 @@ describe('AppCard', () => {
       // Arrange
       const localThis = {
         getActiveCard: {
-          name: 'test'
-        }
+          name: 'test',
+        },
       }
       const expected = true
       // Act
@@ -68,13 +68,13 @@ describe('AppCard', () => {
       const localThis = {
         cards: [
           {
-            name: 'test'
-          }
+            name: 'test',
+          },
         ],
-        slide: 0
+        slide: 0,
       }
       const expected = {
-        name: 'test'
+        name: 'test',
       }
       // Act
       const card = AppCard.computed.getActiveCard.call(localThis)
@@ -88,10 +88,10 @@ describe('AppCard', () => {
       const localThis = {
         cards: [
           {
-            name: 'test'
-          }
+            name: 'test',
+          },
         ],
-        slide: 1
+        slide: 1,
       }
       const expected = null
 
@@ -103,12 +103,11 @@ describe('AppCard', () => {
     })
   })
 
-
   describe('activeCardState()', () => {
     test('activeCardState false case', () => {
       // Arrange
       const localThis = {
-        getActiveCard: null
+        getActiveCard: null,
       }
       const expected = false
 
@@ -123,8 +122,8 @@ describe('AppCard', () => {
       // Arrange
       const localThis = {
         getActiveCard: {
-          frozen: undefined
-        }
+          frozen: undefined,
+        },
       }
       const expected = false
 
@@ -139,8 +138,8 @@ describe('AppCard', () => {
       // Arrange
       const localThis = {
         getActiveCard: {
-          frozen: false
-        }
+          frozen: false,
+        },
       }
       const expected = false
 
@@ -157,7 +156,7 @@ describe('AppCard', () => {
     test('showCard show case', () => {
       // Arrange
       const localThis = {
-        showCardNumber: false
+        showCardNumber: false,
       }
       const expected = true
 
@@ -171,7 +170,7 @@ describe('AppCard', () => {
     test('showCard hide case', () => {
       // Arrange
       const localThis = {
-        showCardNumber: true
+        showCardNumber: true,
       }
       const expected = false
 

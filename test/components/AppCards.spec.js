@@ -7,7 +7,7 @@ describe('AppCards', () => {
     test('getDebitCards empty', () => {
       // Arrange
       const localThis = {
-        cards: []
+        cards: [],
       }
       const expected = []
       // Act
@@ -22,17 +22,17 @@ describe('AppCards', () => {
         cards: [
           {
             name: 'John',
-            fullNumber: 1234123412341234
-          }
+            fullNumber: 1234123412341234,
+          },
         ],
-        getN: (n) => n
+        getN: (n) => n,
       }
       const expected = [
         {
-          exactNum: "1234123412341234",
+          exactNum: '1234123412341234',
           name: 'John',
-          fullNumber: 1234123412341234
-        }
+          fullNumber: 1234123412341234,
+        },
       ]
       // Act
       const cards = AppCards.computed.getDebitCards.call(localThis)
@@ -47,7 +47,7 @@ describe('AppCards', () => {
       // Arrange
       const localThis = {}
       const card = '9234123416346234'
-      const expected = ["9234", "1234", "1634", "6234"]
+      const expected = ['9234', '1234', '1634', '6234']
       // Act
       const cards = AppCards.methods.getN.call(localThis, card)
       // Assert

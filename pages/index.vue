@@ -7,11 +7,9 @@ import AppCards from '@/components/AppCards'
 export default {
   name: 'Index',
   components: {
-    AppCards
-  }
+    AppCards,
+  },
 }
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

@@ -15,7 +15,10 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', src: 'https://fonts.googleapis.com/css?family=Open+Sans' }
+      {
+        rel: 'stylesheet',
+        src: 'https://fonts.googleapis.com/css?family=Open+Sans',
+      },
     ],
   },
 
@@ -23,9 +26,7 @@ export default {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-    '~/plugins/vuelidate'
-  ],
+  plugins: ['~/plugins/vuelidate'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -55,16 +56,16 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     styleResources: {
-      scss: './assets/variables.scss'
-    }
+      scss: './assets/variables.scss',
+    },
   },
 
   svg: {
-      vueSvgLoader: {
-          // vue-svg-loader options
-      },
-      svgSpriteLoader: {
-          // svg-sprite-loader options
-      }
+    vueSvgLoader: {
+      // vue-svg-loader options
+    },
+    svgSpriteLoader: {
+      // svg-sprite-loader options
+    },
   },
 }

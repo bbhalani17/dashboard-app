@@ -15,10 +15,19 @@
     >
       <form ref="form" @submit.prevent="handleSubmit">
         <label for="name">Name</label>
-        <input id="name" v-model="name" type="text" name="name" class="form-control" :class="{ 'is-invalid': submitted && $v.name.$error }" />
+        <input
+          id="name"
+          v-model="name"
+          type="text"
+          name="name"
+          class="form-control"
+          :class="{ 'is-invalid': submitted && $v.name.$error }"
+        />
         <div v-if="submitted && $v.name.$error" class="invalid-feedback">
           <span v-if="!$v.name.required">Name is required</span>
-          <span v-if="!$v.name.minLength">Name must be at least 6 characters</span>
+          <span v-if="!$v.name.minLength"
+            >Name must be at least 6 characters</span
+          >
         </div>
       </form>
     </b-modal>
@@ -27,37 +36,35 @@
 
 <script>
 import { mapMutations } from 'vuex'
-import { required, minLength } from "vuelidate/lib/validators"
+import { required, minLength } from 'vuelidate/lib/validators'
 
 export default {
   data() {
     return {
       name: '',
-      submitted: false
+      submitted: false,
     }
   },
   validations: {
     name: { required, minLength: minLength(6) },
-    submitted: false
+    submitted: false,
   },
   computed: {
-    randomDate () {
+    randomDate() {
       const nextYear = new Date().getFullYear() + 1
       const nextFive = nextYear + 5
       let randomMonth = parseInt(Math.random() * (12 - 1) + 1)
-      randomMonth = (randomMonth < 10) ? ("0" + randomMonth) : randomMonth;
+      randomMonth = randomMonth < 10 ? '0' + randomMonth : randomMonth
       const year = parseInt(Math.random() * (nextFive - nextYear) + nextYear)
       const rY = year.toString()
       const randomYear = rY.slice(rY.length - 2)
       return randomMonth + '/' + randomYear
-    }
+    },
   },
   methods: {
-    ...mapMutations([
-      'addNewCard'
-    ]),
+    ...mapMutations(['addNewCard']),
     resetModal() {
-      this.name = '';
+      this.name = ''
     },
     handleOk(bvModalEvt) {
       // Prevent modal from closing
@@ -68,7 +75,7 @@ export default {
     handleSubmit() {
       this.submitted = true
       // stop here if form is invalid
-      this.$v.$touch();
+      this.$v.$touch()
       if (this.$v.$invalid) {
         return
       }
@@ -76,7 +83,7 @@ export default {
       // Push the name to card object inturn to cards state
       const rnd = this.getRandomNumber(16)
       const last = rnd.slice(rnd.length - 4)
-      const cardType = (Math.random()>=0.5)? 'visa' : 'master';
+      const cardType = Math.random() >= 0.5 ? 'visa' : 'master'
       const newCard = {
         fullNumber: rnd,
         lastNumber: last,
@@ -85,7 +92,7 @@ export default {
         validity: this.randomDate,
         cvv: '***',
         frozen: false,
-        transactions: []
+        transactions: [],
       }
       this.$store.commit('addNewCard', newCard)
       // Hide the modal manually
@@ -93,17 +100,17 @@ export default {
         this.$bvModal.hide('modal-prevent-closing')
       })
     },
-    getRandomNumber (digit) {
-      return Math.random().toFixed(digit).split('.')[1];
-    }
-  }
+    getRandomNumber(digit) {
+      return Math.random().toFixed(digit).split('.')[1]
+    },
+  },
 }
 </script>
 <style lang="scss">
-.modal{
+.modal {
   color: $black-two;
 }
-.new-card img{
+.new-card img {
   width: 16px;
   height: 16px;
   margin-bottom: 2px;

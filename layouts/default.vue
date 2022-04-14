@@ -6,25 +6,25 @@
 </template>
 
 <script>
-  import AppMenu from '~/components/common/AppMenu.vue'
-  export default {
-    // eslint-disable-next-line vue/multi-word-component-names
-    name: 'Default',
-    components: {
-      AppMenu
-    }
-  }
+import AppMenu from '~/components/common/AppMenu.vue'
+export default {
+  // eslint-disable-next-line vue/multi-word-component-names
+  name: 'Default',
+  components: {
+    AppMenu,
+  },
+}
 </script>
 
 <style lang="scss">
-html, body {
-  font-family: 'Open Sans',
-    sans-serif;
+html,
+body {
+  font-family: 'Open Sans', sans-serif;
   font-weight: 300;
   font-size: 16px;
   word-spacing: 1px;
   box-sizing: border-box;
-  background: #0C365A;
+  background: #0c365a;
   color: #ffffff;
 }
 

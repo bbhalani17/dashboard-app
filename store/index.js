@@ -15,7 +15,7 @@ export const state = () => ({
           name: 'Hamleys',
           date: '20 May 2020',
           amount: 150,
-          debit: false
+          debit: false,
         },
         {
           id: 2,
@@ -23,7 +23,7 @@ export const state = () => ({
           name: 'Hamleys',
           date: '21 May 2020',
           amount: 90,
-          debit: true
+          debit: true,
         },
         {
           id: 3,
@@ -31,7 +31,7 @@ export const state = () => ({
           name: 'Hamleys',
           date: '22 May 2020',
           amount: 123,
-          debit: true
+          debit: true,
         },
         {
           id: 4,
@@ -39,9 +39,9 @@ export const state = () => ({
           name: 'Hamleys',
           date: '23 May 2020',
           amount: 450,
-          debit: true
-        }
-      ]
+          debit: true,
+        },
+      ],
     },
     {
       fullNumber: 4123500090003322,
@@ -57,32 +57,32 @@ export const state = () => ({
           name: 'Hamleys',
           date: '20 May 2020',
           amount: 150,
-          debit: false
+          debit: false,
         },
         {
           logo: '',
           name: 'Hamleys',
           date: '21 May 2020',
           amount: 90,
-          debit: true
+          debit: true,
         },
         {
           logo: '',
           name: 'Hamleys',
           date: '22 May 2020',
           amount: 123,
-          debit: true
+          debit: true,
         },
         {
           logo: '',
           name: 'Hamleys',
           date: '23 May 2020',
           amount: 450,
-          debit: true
-        }
-      ]
-    }
-  ]
+          debit: true,
+        },
+      ],
+    },
+  ],
 })
 
 export const mutations = {
@@ -94,5 +94,5 @@ export const mutations = {
   },
   cancelCard: (state, formData) => {
     state.cards.splice(formData.index, 1)
-  }
+  },
 }

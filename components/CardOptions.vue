@@ -3,31 +3,31 @@
     <ul class="navbar-nav">
       <li class="nav-item">
         <div class="nav-link" @click="freezeCard">
-          <img src="~assets/icons/Freezecard.svg" alt="Freeze card"/>
+          <img src="~assets/icons/Freezecard.svg" alt="Freeze card" />
           {{ frozen ? 'Unfreeze card' : 'Freeze card' }}
         </div>
       </li>
       <li class="nav-item">
         <div class="nav-link active">
-          <img src="~assets/icons/Setspendlimit.svg" alt="Set spend limit"/>
+          <img src="~assets/icons/Setspendlimit.svg" alt="Set spend limit" />
           Set spend limit
         </div>
       </li>
       <li class="nav-item">
         <div class="nav-link">
-          <img src="~assets/icons/GPay.svg" alt="Add to GPay"/>
+          <img src="~assets/icons/GPay.svg" alt="Add to GPay" />
           Add to GPay
         </div>
       </li>
       <li class="nav-item">
         <div class="nav-link">
-          <img src="~assets/icons/Replacecard.svg" alt="Replace card"/>
+          <img src="~assets/icons/Replacecard.svg" alt="Replace card" />
           Replace card
         </div>
       </li>
       <li class="nav-item">
         <div class="nav-link" @click="showModal">
-          <img src="~assets/icons/Deactivatecard.svg" alt="Cancel card"/>
+          <img src="~assets/icons/Deactivatecard.svg" alt="Cancel card" />
           Cancel card
         </div>
       </li>
@@ -49,62 +49,60 @@ export default {
   props: {
     cardIndex: {
       type: Number,
-      default: () => 0
+      default: () => 0,
     },
     cardName: {
       type: String,
-      default: () => ''
+      default: () => '',
     },
     cardNumber: {
       type: [String, Number],
-      default: () => null
+      default: () => null,
     },
     frozen: {
       type: Boolean,
-      default: () => false
+      default: () => false,
     },
     transactions: {
       type: Array,
-      default: () => []
-    }
+      default: () => [],
+    },
   },
   methods: {
-    ...mapMutations([
-      'freezeCard'
-    ]),
-    freezeCard () {
+    ...mapMutations(['freezeCard']),
+    freezeCard() {
       if (this.cardIndex === undefined || this.frozen === undefined) {
         return
       }
-      const data = { index: this.cardIndex, state: !this.frozen}
+      const data = { index: this.cardIndex, state: !this.frozen }
       this.$store.commit('freezeCard', data)
     },
-    cancelCard () {
+    cancelCard() {
       if (this.cardIndex === undefined) {
         return
       }
       const data = { index: this.cardIndex }
       this.$store.commit('cancelCard', data)
     },
-    showModal () {
+    showModal() {
       this.$refs['cancel-modal'].show()
-    }
-  }
+    },
+  },
 }
 </script>
 <style lang="scss">
-ul.navbar-nav{
+ul.navbar-nav {
   width: 100%;
   height: 56px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  li{
+  li {
     display: inline-block;
   }
 }
-.nav-link{
+.nav-link {
   text-align: center;
   color: $dark-blue;
   font-size: 13px;

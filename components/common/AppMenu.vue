@@ -5,31 +5,31 @@
       <ul class="navbar-nav">
         <li class="nav-item">
           <a class="nav-link" href="#">
-            <img src="~assets/icons/Logo.svg" alt="Home"/>
+            <img src="~assets/icons/Logo.svg" alt="Home" />
             Home
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" href="#">
-            <img src="~assets/icons/pay.svg" alt="Cards"/>
+            <img src="~assets/icons/pay.svg" alt="Cards" />
             Cards
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">
-            <img src="~assets/icons/Payments.svg" alt="Payments"/>
+            <img src="~assets/icons/Payments.svg" alt="Payments" />
             Payments
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">
-            <img src="~assets/icons/Credit.svg" alt="Credit"/>
+            <img src="~assets/icons/Credit.svg" alt="Credit" />
             Credit
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">
-            <img src="~assets/icons/Account.svg" alt="Profile"/>
+            <img src="~assets/icons/Account.svg" alt="Profile" />
             Profile
           </a>
         </li>
@@ -39,10 +39,10 @@
 </template>
 
 <script>
-  /* eslint-disable vue/multi-word-component-names */
-  export default {
-    name: 'Cards'
-  }
+/* eslint-disable vue/multi-word-component-names */
+export default {
+  name: 'Cards',
+}
 </script>
 
 <style lang="scss" scoped>
@@ -54,7 +54,7 @@
   background: $white;
   z-index: 2;
 }
-ul.navbar-nav{
+ul.navbar-nav {
   width: 100%;
   padding: 0 $standard;
   height: 56px;
@@ -62,13 +62,13 @@ ul.navbar-nav{
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  li{
+  li {
     display: inline-block;
   }
 }
-.nav-link{
+.nav-link {
   font-size: 9px;
-  color: #DDDDDD;
+  color: #dddddd;
   display: flex;
   flex-direction: column;
   justify-content: center;

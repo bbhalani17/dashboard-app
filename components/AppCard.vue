@@ -1,27 +1,28 @@
 <template>
   <div class="cards-carousel">
     <div class="show-card-wrapper">
-      <div class="show-card" :class="{'frozen': activeCardState}" @click="showCard">
-        <img src="~assets/icons/showcard.svg" alt="Show card number">
-        <div v-if="!showCardNumber">
-          Show card number
-        </div>
-        <div v-else>
-          Hide card number
-        </div>
+      <div
+        class="show-card"
+        :class="{ frozen: activeCardState }"
+        @click="showCard"
+      >
+        <img src="~assets/icons/showcard.svg" alt="Show card number" />
+        <div v-if="!showCardNumber">Show card number</div>
+        <div v-else>Hide card number</div>
       </div>
     </div>
-    <b-carousel
-      id="carousel-1"
-      v-model="slide"
-      :interval="0"
-      indicators
-    >
-      <b-carousel-slide v-for="card in cards" :key="card.lastNumber" img-blank :img-alt="card.name" :class="card.type">
-        <div class="container-fluid card-info" :class="{'frozen': card.frozen}">
+    <b-carousel id="carousel-1" v-model="slide" :interval="0" indicators>
+      <b-carousel-slide
+        v-for="card in cards"
+        :key="card.lastNumber"
+        img-blank
+        :img-alt="card.name"
+        :class="card.type"
+      >
+        <div class="container-fluid card-info" :class="{ frozen: card.frozen }">
           <div class="row logo">
             <div class="col">
-              <img src="~assets/icons/AspireLogo.svg" alt="AspireLogo">
+              <img src="~assets/icons/AspireLogo.svg" alt="AspireLogo" />
             </div>
           </div>
           <div class="row name">
@@ -32,7 +33,7 @@
           <div class="row card-number">
             <div v-if="!showCardNumber" class="col">
               <div v-for="i in 3" :key="i" class="four-dots">
-                <span v-for="index in 4" :key="index"/>
+                <span v-for="index in 4" :key="index" />
               </div>
               <div class="last-number">{{ card.lastNumber }}</div>
             </div>
@@ -52,17 +53,17 @@
           </div>
           <div class="row logo">
             <div class="col">
-              <img v-if="card.type === 'visa'" src="~assets/icons/VisaLogo.svg" alt="VisaLogo" />
+              <img
+                v-if="card.type === 'visa'"
+                src="~assets/icons/VisaLogo.svg"
+                alt="VisaLogo"
+              />
             </div>
           </div>
         </div>
       </b-carousel-slide>
     </b-carousel>
-    <card-details
-      v-if="validCard"
-      :card-index="slide"
-      :card="getActiveCard"
-    />
+    <card-details v-if="validCard" :card-index="slide" :card="getActiveCard" />
   </div>
 </template>
 
@@ -72,42 +73,42 @@ import CardDetails from '@/components/CardDetails'
 export default {
   name: 'AppCard',
   components: {
-    CardDetails
+    CardDetails,
   },
   props: {
     cards: {
       type: Array,
-      default: () => []
-    }
+      default: () => [],
+    },
   },
   data() {
     return {
       slide: 0,
-      showCardNumber: false
+      showCardNumber: false,
     }
   },
   computed: {
-    validCard () {
+    validCard() {
       return !!this.getActiveCard
     },
-    getActiveCard () {
+    getActiveCard() {
       if (this.cards.length > 0 && this.cards[this.slide] !== undefined) {
         return this.cards[this.slide]
       }
       return null
     },
-    activeCardState () {
+    activeCardState() {
       if (this.getActiveCard && this.getActiveCard.frozen !== undefined) {
         return this.getActiveCard.frozen
       }
       return false
-    }
+    },
   },
   methods: {
-    showCard () {
+    showCard() {
       this.showCardNumber = !this.showCardNumber
-    }
-  }
+    },
+  },
 }
 </script>
 <style lang="scss">
@@ -133,14 +134,14 @@ export default {
   top: 10px;
   line-height: 28px;
   cursor: pointer;
-  img{
+  img {
     width: 16px;
     height: 16px;
     margin-right: 5px;
     margin-top: 6px;
   }
 }
-.carousel-indicators{
+.carousel-indicators {
   top: 245px;
   z-index: 2;
   li {
@@ -154,29 +155,29 @@ export default {
     }
   }
 }
-.tab-content{
+.tab-content {
   .tab-pane {
     margin: 0 auto;
     max-width: 360px;
   }
-  .carousel-item{
+  .carousel-item {
     border-radius: 10px;
     max-width: 360px;
     height: 220px;
   }
-  .visa{
+  .visa {
     background: $green-color;
   }
   .master {
     background: $black;
   }
 }
-.card-info{
+.card-info {
   text-align: left;
   .row {
     padding-left: 10px;
   }
-  .logo{
+  .logo {
     .col {
       width: 100%;
       display: flex;
@@ -195,15 +196,15 @@ export default {
       font-weight: 400;
     }
   }
-  .card-number{
+  .card-number {
     letter-spacing: 3.5px;
     padding-top: 10px;
-    .col{
+    .col {
       display: flex;
       justify-content: space-between;
       max-width: 90%;
     }
-    .four-dots{
+    .four-dots {
       span {
         height: 8px;
         width: 8px;
@@ -216,7 +217,8 @@ export default {
         }
       }
     }
-    .last-number, .full-number {
+    .last-number,
+    .full-number {
       font-size: 14px;
       line-height: 25px;
     }
@@ -225,14 +227,14 @@ export default {
     padding-top: 19px;
     font-size: 13px;
     font-weight: 400;
-    .col{
+    .col {
       display: flex;
       justify-content: flex-start;
     }
     .cvv {
       padding-left: $standard;
     }
-    .stars{
+    .stars {
       font-size: 24px;
       line-height: 32px;
     }

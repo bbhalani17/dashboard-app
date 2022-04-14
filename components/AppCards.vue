@@ -2,7 +2,7 @@
   <div>
     <div class="container">
       <header>
-        <h1> Account balance </h1>
+        <h1>Account balance</h1>
         <img src="~assets/icons/GreenLogo.svg" alt="Aspire" />
       </header>
       <div class="balance-details">
@@ -14,13 +14,9 @@
       </div>
       <b-tabs>
         <b-tab title="My debit cards">
-          <app-card
-            v-if="getDebitCards.length"
-            :cards="getDebitCards"
-          />
+          <app-card v-if="getDebitCards.length" :cards="getDebitCards" />
         </b-tab>
-        <b-tab title="My company cards">
-        </b-tab>
+        <b-tab title="My company cards"> </b-tab>
       </b-tabs>
     </div>
   </div>
@@ -35,19 +31,17 @@ export default {
   name: 'AppCards',
   components: {
     AppCard,
-    NewCard
+    NewCard,
   },
   computed: {
-    ...mapState([
-      'cards',
-    ]),
-    getDebitCards () {
+    ...mapState(['cards']),
+    getDebitCards() {
       const cards = []
       this.cards.forEach((card) => {
-        cards.push({exactNum: this.getN(card.fullNumber.toString()), ...card })
+        cards.push({ exactNum: this.getN(card.fullNumber.toString()), ...card })
       })
       return cards
-    }
+    },
   },
   methods: {
     getN(n) {
@@ -55,16 +49,16 @@ export default {
         return ''
       }
       return n.match(/.{1,4}/g)
-    }
-  }
+    },
+  },
 }
 </script>
 
 <style lang="scss">
-.container{
+.container {
   padding-left: $standard;
 }
-header{
+header {
   padding-top: 20px;
   display: flex;
   justify-content: space-between;
@@ -78,7 +72,7 @@ img {
   width: 25px;
   height: 25px;
 }
-.currency{
+.currency {
   background: $green-color;
   width: 40px;
   height: 22px;
@@ -94,44 +88,45 @@ img {
   align-items: center;
   justify-content: flex-start;
   width: 40%;
-
 }
-.balance-details{
+.balance-details {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.balance{
+.balance {
   font-size: $standard;
   font-weight: bold;
   padding-left: 10px;
 }
-.new-card{
+.new-card {
   font-size: 13px;
   color: $blue-color;
 }
-.tabs{
+.tabs {
   padding-top: 30px;
-  .nav-tabs{
+  .nav-tabs {
     border: 0;
   }
-  .nav-tabs .nav-link{
+  .nav-tabs .nav-link {
     color: $white;
     font-size: 13px;
     padding: 5px;
     margin-right: 10px;
   }
-  .nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus {
+  .nav-tabs .nav-link:hover,
+  .nav-tabs .nav-link:focus {
     border: 0;
   }
-  .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link{
+  .nav-tabs .nav-link.active,
+  .nav-tabs .nav-item.show .nav-link {
     background: transparent;
     border: 0;
     border-bottom: 2px solid $blue-color;
     color: $white;
     font-weight: bold;
   }
-  .tab-content{
+  .tab-content {
     padding: 20px 0;
   }
 }

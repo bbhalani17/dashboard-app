@@ -2,7 +2,7 @@
   "name": "aspire",
   "version": "1.0.0",
   "private": true,
-  "author":"Bhoomi Bhalani",
+  "author": "Bhoomi Bhalani",
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",

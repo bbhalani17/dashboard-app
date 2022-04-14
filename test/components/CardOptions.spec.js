@@ -24,8 +24,8 @@ describe('CardOptions', () => {
         $store: {
           commit: () => {
             count++
-          }
-        }
+          },
+        },
       }
       const expected = 1
       // Act
@@ -41,8 +41,8 @@ describe('CardOptions', () => {
         $store: {
           commit: () => {
             count++
-          }
-        }
+          },
+        },
       }
       const expected = 0
       // Act
@@ -61,8 +61,8 @@ describe('CardOptions', () => {
         $store: {
           commit: () => {
             count++
-          }
-        }
+          },
+        },
       }
       const expected = 1
       // Act
@@ -78,8 +78,8 @@ describe('CardOptions', () => {
         $store: {
           commit: () => {
             count++
-          }
-        }
+          },
+        },
       }
       const expected = 0
       // Act
@@ -98,9 +98,9 @@ describe('CardOptions', () => {
           'cancel-modal': {
             show: () => {
               count++
-            }
-          }
-        }
+            },
+          },
+        },
       }
       const expected = 1
       // Act
