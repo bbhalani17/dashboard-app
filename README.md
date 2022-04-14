@@ -27,3 +27,4 @@ $ yarn generate
 ```
 
 ## Hosted address
+https://tiny-cendol-21adcc.netlify.app/
